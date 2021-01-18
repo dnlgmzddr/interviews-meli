@@ -28,7 +28,7 @@ public class Circle {
      * @param other circle to intersect with.
      * @return
      */
-    public Optional<Pair<Point, Point>> getIntersactionPoints(Circle other) {
+    public Optional<Pair<Point, Point>> getIntersectionPoints(Circle other, double epsilon) {
         double x0 = this.getX();
         double y0 = this.getY();
         double r0 = this.getR();
@@ -51,7 +51,7 @@ public class Circle {
         d = Math.hypot(dx, dy); // Suggested by Keith Briggs
 
         /* Check for solvability. */
-        if (d > (r0 + r1)) {
+        if (Math.abs(d - (r0 + r1)) > epsilon) {
             /* no solution. circles do not intersect. */
             return Optional.empty();
         }
@@ -86,14 +86,15 @@ public class Circle {
         /* Determine the absolute intersection points. */
         return Optional.of(
                 Pair.with(
-                        new Point((x2 + rx), (y2 + ry)), new Point((x2 - rx), (y2 - ry))
+                        new Point((x2 + (Double.isNaN(rx)? 0 : rx)  ), (y2 + (Double.isNaN(ry)? 0 : ry))),
+                        new Point((x2 - (Double.isNaN(rx)? 0 : rx)), (y2 - (Double.isNaN(ry)? 0 : ry)))
                 )
         );
     }
 
     public boolean intersect(Point point, double epsilon) {
         double dx = point.getX() - this.getX();
-        double dy = point.getX() - this.getY();
+        double dy = point.getY() - this.getY();
         double d = Math.hypot(dx, dy);
         return Math.abs(d - this.getR()) < epsilon;
     }

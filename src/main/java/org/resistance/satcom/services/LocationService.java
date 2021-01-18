@@ -41,7 +41,7 @@ public class LocationService {
      */
     private Optional<Point> findIntersection(Circle c1, Circle c2, Circle c3) {
 
-        var interPoints = c1.getIntersactionPoints(c2);
+        var interPoints = c1.getIntersectionPoints(c2, EPSILON);
         if(interPoints.isEmpty()) return Optional.empty();
         if(c3.intersect(interPoints.get().getValue0(), EPSILON)){
             return Optional.of(interPoints.get().getValue0());
