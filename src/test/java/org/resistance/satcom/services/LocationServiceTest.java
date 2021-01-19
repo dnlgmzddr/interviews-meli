@@ -18,12 +18,21 @@ public class LocationServiceTest {
         Assertions.assertTrue(Math.abs(solution.get().getY() - poo.getY()) < EPSILON);
     }
 
-
     @Test
     public void ValidPointOfOrigen2() {
         var poo = new Point(100d, -100d);
         var service = new LocationService(EPSILON);
         var solution = service.GetLocation(608.276, 0d, 447.214);
+        Assertions.assertTrue(solution.isPresent());
+        Assertions.assertTrue(Math.abs(solution.get().getX() - poo.getX()) < EPSILON);
+        Assertions.assertTrue(Math.abs(solution.get().getY() - poo.getY()) < EPSILON);
+    }
+
+    @Test
+    public void ValidPointOfOrigen3() {
+        var poo = new Point(200d, -100d);
+        var service = new LocationService(EPSILON);
+        var solution = service.GetLocation(707.107, 100d, 360.555);
         Assertions.assertTrue(solution.isPresent());
         Assertions.assertTrue(Math.abs(solution.get().getX() - poo.getX()) < EPSILON);
         Assertions.assertTrue(Math.abs(solution.get().getY() - poo.getY()) < EPSILON);

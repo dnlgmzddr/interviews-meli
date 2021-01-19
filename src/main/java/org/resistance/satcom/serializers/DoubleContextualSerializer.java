@@ -14,7 +14,7 @@ public class DoubleContextualSerializer extends JsonSerializer<Double> {
         if (null == value) {
             jgen.writeNull();
         } else {
-            final String pattern = "0.######";
+            final String pattern = "0.#";
             final DecimalFormat myFormatter = new DecimalFormat(pattern);
             final String output = myFormatter.format(value);
             jgen.writeNumber(output);

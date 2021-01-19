@@ -51,7 +51,7 @@ public class Circle {
         d = Math.hypot(dx, dy); // Suggested by Keith Briggs
 
         /* Check for solvability. */
-        if (Math.abs(d - (r0 + r1)) > epsilon) {
+        if (d > (r0 + r1) && Math.abs(d - (r0 + r1)) > epsilon) {
             /* no solution. circles do not intersect. */
             return Optional.empty();
         }

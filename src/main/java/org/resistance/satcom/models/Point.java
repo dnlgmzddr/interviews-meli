@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.resistance.satcom.serializers.DoubleContextualSerializer;
-import org.resistance.satcom.serializers.Precision;
 
 @Data
 @AllArgsConstructor

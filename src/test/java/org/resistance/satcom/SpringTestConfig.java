@@ -12,21 +12,16 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import static org.resistance.satcom.config.ServiceConfig.EPSILON;
+
 
 @EnableWebMvc
 @Configuration
 public class SpringTestConfig {
 
-
-    @Resource
-    private HttpServletRequest request;
-
-    @Autowired
-    private RestTemplate http;
-
     @Bean
     public LocationService locationService(){
-        return new LocationService(0.01);
+        return new LocationService(EPSILON);
     }
 
     @Bean

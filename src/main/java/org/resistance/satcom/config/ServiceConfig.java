@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServiceConfig {
 
+    public static final double EPSILON = 0.1;
+
     @Bean
     public LocationService locationService(){
-        return new LocationService(0.01);
+        return new LocationService(EPSILON);
     }
 
     @Bean
