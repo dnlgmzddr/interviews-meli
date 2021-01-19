@@ -9,12 +9,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Satellite {
-    private String name;
+    private KnownSatellite name;
     private Double distance;
     private List<String> message;
 
 
     public Integer getId() {
-        return name.equalsIgnoreCase("kenobi") ? 0 : name.equalsIgnoreCase("skywalker")? 1 : 2;
+        return name.ordinal();
     }
 }
