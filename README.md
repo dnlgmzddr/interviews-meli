@@ -89,5 +89,5 @@ curl --location --request POST 'https://satcom.herokuapp.com/topsecret_split/ken
     1. Proper use of github ci/cd pipelines.
     2. Actuators
     3. Logger / Metrics
-    4. `topsecret_split`, is using a good old static map, It would be better to use the `SpringCache` abstraction, it would give us change to grow and span de service across more than one instance.
+    4. `topsecret_split`, is using a good old static map, It would be better to use the `SpringCache` abstraction, it would give us change to grow and span the service across more than one instance.
 4. Make the initial position of the satellites available in the `application.properties` as well as the precision.
