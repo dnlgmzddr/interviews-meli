@@ -81,9 +81,12 @@ curl --location --request POST 'https://satcom.herokuapp.com/topsecret_split/ken
 
 ## What's missing
 
-1. More tests, `topsecret_split` is not covered.
+1. More tests
+    1. `topsecret_split` is not covered.
+    2. They are no performance tests (I like locust)
 2. Instead of a quick curl, a swagger will be nice to show how the API works.
 3. For it to be production ready
-    1. proper use of git ci/cd pipelines.
+    1. Proper use of github ci/cd pipelines.
     2. Actuators
     3. Logger / Metrics
+    4. `topsecret_split`, is using a good old static map, It would be better to use the `SpringCache` abstraction, it would give us change to grow and span de service across more than one instance.
