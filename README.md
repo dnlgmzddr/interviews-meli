@@ -13,10 +13,11 @@ the service is available to all rebels in this URL:
 
 - [Calculate the intersection points of two Circles](https://www.xarg.org/2016/07/calculate-the-intersection-points-of-two-circles/)
 - [C implementation](http://paulbourke.net/geometry/circlesphere/tvoght.c)
+- [LibreCAD](https://librecad.org/), quite helpful to create the tests cases.
 
 ## Sample requests
 
-Valid `topsecret`:
+`topsecret`:
 
 ```
 curl --location --request POST 'https://satcom.herokuapp.com/topsecret' \
@@ -60,3 +61,29 @@ curl --location --request POST 'https://satcom.herokuapp.com/topsecret' \
 }'
 ```
 
+
+`topsecret_split`:
+
+```
+curl --location --request POST 'https://satcom.herokuapp.com/topsecret_split/kenobi' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+"message": [
+"este",
+"",
+"",
+"mensaje",
+""
+],
+"distance": 538.516
+}'
+```
+
+## What's missing
+
+1. More tests, `topsecret_split` is not covered.
+2. Instead of a quick curl, a swagger will be nice to show how the API works.
+3. For it to be production ready
+    1. proper use of git ci/cd pipelines.
+    2. Actuators
+    3. Logger / Metrics
